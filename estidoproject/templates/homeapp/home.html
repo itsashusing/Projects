@@ -1,0 +1,109 @@
+{% extends 'homeapp/base.html' %}
+{% block bodyblock %}
+
+<!-- banner images -->
+<div>
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/static/image/slider/banner.jpg" class="d-block w-100" alt="banner image">
+            </div>
+            {% for banner in banners %}
+            <div class="carousel-item ">
+                <img src="{{banner.image.url}}" class="d-block w-100" alt="banner image">
+            </div>
+            {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-target="#carouselExampleControls" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </button>
+    </div>
+</div>
+<!-- Card display -->
+<div align="center">
+    <h1>SAMPLE CARDS</h1>
+        <a href="tel:6387217378" class="btn btn-success mb-2 " style="width: 10rem;">Call
+            <i class="fa fa-phone"></i>
+        </a>
+
+</div>
+<div class="container">
+    <div class="row my-2">
+        {% for card in page_obj %}
+        <div class="col-sm-3 ">
+            <img src="{{card.image.url}}" class="img-thumbnail" alt="no card">
+
+            <div align="center">
+                <p class="card-text ">{{card.title}} </p>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Pagination -->
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page=1">&laquo; first</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link " href="?page={{ page_obj.previous_page_number }}">previous</a>
+            </li>
+            {% endif %}
+            <li class="page-item active" aria-current="page">
+                <a class="page-link" href="">{{ page_obj.number }}
+                </a>
+            </li>
+            {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}">next</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+
+</div>
+
+
+<!-- About Headings -->
+<div class=" container ">
+    <h1 style="font-family:'Ubuntu', sans-serif; text-align: center; font-weight: bold;">Kaise Hum Printing Ko Easy Banaate Hain</h1>
+    <p style="font-family:'Ubuntu', sans-serif; font-size: 18px; text-align: justify;">
+        Printways hamesha yahi maanta hai ki jab bhi baat aati hai hamare
+        products aur services ki, hum sirf
+        perfection hi dete hain. Hum gharo aur businesses ke liye tez aur high-quality online printing provide karte
+        hain. Hamare products mein business cards printing, postcards, flyers printing, brochures, stationery
+        printing, aur anya premium printing products shaamil hain. Hum UK ke ek pramukh trade printers mein se ek
+        hain aur hamesha yeh koshish karte hain ki har baar jab hum aapki seva karte hain, tab aapko sabse achha
+        mile.
+
+        Printways mein hum samajhte hain ki har vyakti ke paas apni khud ki environmental awareness ki zarurat hoti
+        hai. Hum aapke requirements ko jaldi pura karne, uttam print quality aur anokhe customer services ke saath
+        jodte hain taki hum aapke expectations ko paar kar sake.</p>
+</div>
+
+<!-- Last Kaise kare Order -->
+<div class="container">
+    <h1 style="font-family:'Ubuntu', sans-serif; text-align: center; font-weight: bold;">Kaise kare Order</h1>
+    <p style="font-family:'Ubuntu', sans-serif; font-size: 18px; text-align: center;">
+        Follow these simple steps:-
+    </p>
+    <div class=" row">
+        <div class="col-sm-4"> <img src="/static/image/card/card.jpg" class="img-thumbnail" alt=""></div>
+        <div class="col-sm-4"> <img src="/static/image/card/card.jpg" class="img-thumbnail" alt=""></div>
+        <div class="col-sm-4"> <img src="/static/image/card/card.jpg" class="img-thumbnail" alt=""></div>
+    </div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'homeapp/base.html' %}
+{% block bodyblock %}
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        {% for kanha in admin %}
+        <h1 class="display-2">{{kanha.user.first_name | title}} {{kanha.user.last_name}} </h1>
+        <address>{{kanha.address}} </address>
+        <p class="" > Email: {{kanha.user.email}} </p>
+        <div class="row">
+            <div class="col-sm-4">
+                <a class="btn btn-primary" href="{{kanha.facebook}}  " target="_blank">Facebook</a>
+                <a class="btn" href="{{kanha.instagram}} " target="_blank" style="background-color: #fc1e45; color: white;">Instagram</a>
+                <a class="btn btn-success" href="tel:6387217378" >Call Me</a>
+            </div>
+        </div>
+        <p class="lead">{{kanha.body | safe }}</p>
+        {% endfor %}
+    </div>
+</div>
+
+</div>
+
+
+
+{% endblock %}
