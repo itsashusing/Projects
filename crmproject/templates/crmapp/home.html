@@ -1,0 +1,53 @@
+{% extends 'crmapp/base.html' %}
+{% block bodyblock %}
+
+{% if user.is_authenticated %}
+{% if records %}
+{% if total %}
+<h1 style="text-align: center;"> Employe Records | Total Records: {{total}} </h1>
+{% endif %}
+<div class=" m-4">
+    <div class=" table-responsive ">
+        <table class="table" border="1px">
+            <thead  class="thead-dark" >
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone number</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Updated At</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for record in records %}
+                <tr>
+                    <td> <a href="emp/details/{{record.id}}">{{record.first_name}}</a></td>
+                    <td>{{record.last_name}}</td>
+                    <td>{{record.email}}</td>
+                    <td>{{record.phonenumber}}</td>
+                    <td>{{record.address}}</td>
+                    <td>{{record.city}}</td>
+                    <td style="width: fit-content;">{{record.state}}</td>
+                    <td>{{record.created_at}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% else %}
+<div class="container col-6 ">
+    <h1> No records Found</h1>
+</div>
+{% endif %}
+
+
+
+{% endif %}
+
+{% endblock %}

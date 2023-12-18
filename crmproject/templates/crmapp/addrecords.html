@@ -1,0 +1,19 @@
+{% extends 'crmapp/base.html' %}
+{% block bodyblock %}
+{% load crispy_forms_tags %}
+
+{% if user.is_authenticated %}
+
+<div class="container col-6">
+    <form method="post">
+        {% csrf_token %}
+        {{form | crispy}}
+        <input class="btn btn-success" type="submit" value="Add record">
+    </form>
+    {% else %}
+    <h1> First Log in to access this page</h1>
+    {% endif %}
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'crmapp/base.html' %}
+{% block bodyblock %}
+
+{% if record %}
+<div class="container table-responsive m-4">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col"> First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Address</th>
+                <th scope="col">City</th>
+                <th scope="col">State</th>
+                <th scope="col">Updated At</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> {{record.first_name}}</td>
+                <td>{{record.last_name}}</td>
+                <td>{{record.email}}</td>
+                <td>{{record.phonenumber}}</td>
+                <td>{{record.address}}</td>
+                <td>{{record.city}}</td>
+                <td>{{record.state}}</td>
+                <td>{{record.created_at}}</td>
+
+                <td>
+                    <div class="d-flex"> <a href="/emp/delete/{{record.id}}" class="btn btn-danger btn-sm"> Delete</a>
+                        <a href="/emp/update/{{record.id}}" class="btn btn-warning btn-sm ml-2">Update </a>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-primary ml-2" href="/">Home</a>
+    {% else %}
+    <h1 style="text-align: center;">{{mess.mess}} </h1>
+    {% endif %}
+</div>
+
+{% endblock %}

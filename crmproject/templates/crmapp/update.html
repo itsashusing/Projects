@@ -1,0 +1,32 @@
+{% extends 'crmapp/base.html' %}
+{% block bodyblock %}
+
+{% if form %}
+<div class="container col-6">
+    <div class="form-group">
+        <form method="post">
+            {% csrf_token %}
+            <label>{{form.first_name.label}} </label>
+            <input type="text" class="form-control" name="first_name" value="{{ form.first_name.value }}">
+            <label>{{form.last_name.label}} </label>
+            <input type="text" class="form-control" name="last_name" value="{{ form.last_name.value }}">
+            <label>{{form.email.label}} </label>
+            <input type="email" class="form-control" name="email" value="{{ form.email.value }}">
+            <label>{{form.phonenumber.label}} </label>
+            <input type="text" class="form-control" name="phonenumber" value="{{ form.phonenumber.value }}">
+            <label>{{form.address.label}} </label>
+            <input type="text" class="form-control" name="address" value="{{ form.address.value }}">
+            <label>{{form.last_name.label}} </label>
+            <input type="text" class="form-control" name="city" value="{{ form.city.value }}">
+            <label>{{form.state.label}} </label>
+            <input type="text" class="form-control" name="state" value="{{ form.state.value }}">
+            <input class="btn btn-success my-2 form-control" type="submit" value="Update" >
+        </form>
+    </div>
+{% else %}
+<h1 style="text-align: center;">{{mess.mess}} </h1>
+{% endif  %}
+</div>
+
+
+{% endblock %}
