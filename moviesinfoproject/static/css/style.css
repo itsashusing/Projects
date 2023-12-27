@@ -1,0 +1,14 @@
+body{
+    background-color: yellow;
+    font-variant: small-caps;
+    color: red;
+}
+h1{
+    text-align: center;
+}
+button{
+    background-color: chartreuse;
+    border: red 2px solid;
+    font-size: 18px;
+    
+}

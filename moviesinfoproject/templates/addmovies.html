@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Add Movies</title>
+</head>
+<body><div align="center">
+    {% if done %}
+    <h1>Record has been submitted successfully...</h1>
+    <button type="submit"> <a href="/add/">back</a></button>
+    {% else %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <button type="submit">Add</button>
+    </form><br><br>
+    <button type="submit"><a href="/list">Movies List</a></button>
+    <button type="submit"><a href="/">Home</a></button>
+    {% endif %}
+</div>
+</body>
+</html>

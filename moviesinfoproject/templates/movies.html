@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Movies List</title>
+</head>
+
+<body>
+    {% if movies_list %}
+    <div align="center">
+        <table border="2" bordercolor="red" align="center" width="500">
+            <caption style="color: rgb(7, 7, 248); font-size: larger;">Movies Information</caption>
+            <tr>
+                <th>Release Date</th>
+                <th>Movie Name</th>
+                <th>Hero</th>
+                <th>Heroin</th>
+            </tr>
+            {% for movies in movies_list %}
+            <tr style="color: red;" align="center">
+                <td>{{movies.rdate}} </td>
+                <td>{{movies.name}}</td>
+                <td>{{movies.hero}}</td>
+                <td>{{movies.heroien}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br><br>
+        {% else %}
+        <h1>No Movies Found</h1>
+
+        {% endif %}
+        <button type="submit"><a href="/add/">Add Movies</a></button>
+        <button type="submit"><a href="/">Home</a></button>
+    </div>
+</body>
+
+</html>
