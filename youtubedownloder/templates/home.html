@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube Downloder</title>
+    <style>
+        .center {
+            margin: auto;
+            width: 50%;
+            border: 2px solid rgb(128, 9, 0);
+            padding: 10px;
+}
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;"> Downlod Youtube video</h1>
+    <div class="center">
+        <form  method="post">
+            {% csrf_token %}
+            <label >Enter Youtube video url</label><br> 
+            <input type="text" name="link" > <br><br>
+            <button type="post">submit</button>
+        </form>
+    </div>
+</body>
+</html>

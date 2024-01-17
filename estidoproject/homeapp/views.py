@@ -1,4 +1,4 @@
-from django.shortcuts import render
+	from django.shortcuts import render
 from homeapp.models import CardProduct,Banner,AboutUs
 from django.core.paginator import Paginator
 # Create your views here.
