@@ -1,0 +1,13 @@
+.custom {
+  display: flex;
+  flex-wrap: wrap;
+}
+.undercard {
+  display: flex;
+  justify-content: space-between;
+}
+#cardphoto {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
