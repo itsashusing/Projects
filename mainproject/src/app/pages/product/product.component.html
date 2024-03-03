@@ -1,0 +1,87 @@
+<div class="slider flex justify-around  bg-slate-500 p-10 pb-10">
+  <div id="carouselExampleIndicators" class="carousel w-[40%] slide">
+    <div class="carousel-indicators">
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="0"
+        class="active"
+        aria-current="true"
+        aria-label="Slide 1"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="1"
+        aria-label="Slide 2"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="2"
+        aria-label="Slide 3"
+      ></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{{ images[0] }}" class="d-block w-100 rounded-lg" alt="..." />
+      </div>
+      <div
+        *ngFor="let url of images.slice(2, images.length - 1)"
+        class="carousel-item"
+      >
+        <img src="{{ url }}" class="d-block w-100 rounded-lg" alt="..." />
+      </div>
+    </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <div class="w-[40%]">
+    <div class="flex flex-col">
+      <div class="text-center font-extrabold text-xl">
+        {{ product.title }}
+      </div>
+      <div class="discripction text-gray-800">
+        {{ product.description }}
+      </div>
+      <div class="price pt-2">
+        <!-- Discount -->
+        <div class="bg-green-300 w-full p-2 text-center rounded-xl">
+          Discount: {{ product.discountPercentage }}% off
+        </div>
+      </div>
+      <div class="flex">
+        <div class="bg-green-300 p-2 w-1/2 text-center rounded-xl mt-2">
+          <del>{{ product.price | currency : "INR" }} </del>
+        </div>
+        <div class="bg-green-700 p-2 w-1/2 text-center rounded-xl mt-2 mx-2">
+          {{
+            (product.price - product.discountPercentage).toFixed(2)
+              | currency : "INR"
+          }}
+        </div>
+      </div>
+      <div
+        class="mt-3 bg-yellow-400 p-1 text-center w-full rounded-lg hover:cursor-pointer"
+      >
+        <a href="cart">Go to cart🛒</a>
+      </div>
+    </div>
+  </div>
+</div>

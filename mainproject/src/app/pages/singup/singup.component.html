@@ -1,0 +1,75 @@
+<div class="bg-slate-700 h-screen text-white">
+  <form
+    #fm="ngForm"
+    (ngSubmit)="register(pw, em)"
+    class="flex flex-col items-center h-[70vh] justify-center"
+  >
+    <div class="text-center font-semibold text-2xl mb-2">Register</div>
+    <div
+      class="flex flex-col items-center mb-4 w-[50%] p-4 bg-slate-600 rounded-lg drop-shadow-xl text-black font-thin"
+    >
+      <input
+        class="my-2 w-fit px-2 rounded-lg"
+        type="text"
+        placeholder="Enter Your Name"
+        name="username"
+      />
+      <input
+        [ngClass]="{ error: (fm.submitted || em.touched) && em.errors?.['required'] }"
+        class="my-2 w-fit px-2 rounded-lg"
+        type="email"
+        required
+        placeholder="Enter Your Email"
+        name="email"
+        ngModel
+        #em="ngModel"
+      />
+      <input
+        class="my-2 w-fit px-2 rounded-lg"
+        type="tel"
+        placeholder="Enter Your Contact"
+      />
+      <input
+        [ngClass]="{
+          error: (fm.submitted || pw.touched) && pw.errors?.['required']
+        }"
+        class="my-2 w-fit px-2 rounded-lg"
+        required
+        type="password"
+        placeholder="Enter Your Password"
+        name="password"
+        ngModel
+        #pw="ngModel"
+      />
+
+      <ng-container
+        *ngIf="
+          pw.control.value.trim().length < 7 ||
+            em.control.value.trim().length < 5;
+          else elseTemplate
+        "
+      >
+        <button
+          disabled
+          type="submit"
+          class="bg-gray-500 w-[20%] rounded-xl p-1 px-2 mb-2 z-10"
+        >
+          Signup
+        </button>
+      </ng-container>
+      <ng-template #elseTemplate>
+        <button
+          type="submit"
+          class="bg-yellow-400 w-[20%] rounded-xl p-1 px-2 mb-2 z-10"
+        >
+          Signup
+        </button>
+      </ng-template>
+      <div>
+        <a class="text-sm text-blue-800" href="login"
+          >Already have an account login...</a
+        >
+      </div>
+    </div>
+  </form>
+</div>

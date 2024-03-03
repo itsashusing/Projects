@@ -1,0 +1,52 @@
+<div class="container bg-slate-200">
+  <div class="text-center text-2xl font-semibold p-2 mb-4">
+    Hello Ashutosh Singh check your shoping bag!
+  </div>
+  <hr class="mb-4" />
+  <!-- items -->
+  <div *ngFor="let item of cart.slice(3, 6)" class="items flex">
+    <div class="logo w-full flex justify-center">
+      <!-- Photo section -->
+      <a href="product/{{item.id}}"
+        ><img
+          class="w-[50%] mb-2 rounded-xl"
+          src="{{ item.thumbnail }}"
+          alt=""
+          srcset=""
+      /></a>
+    </div>
+    <div class="middle w-full">
+      <!-- Name -->
+      <div>
+        <a href="product/{{item.id}}"> {{ item.title }}</a>
+       
+      </div>
+      <div class="text-gray-500">
+        {{ item.description }}
+      </div>
+    </div>
+    <div class="counter w-full flex justify-center">
+      <div class="flex">
+        <!-- plus button -->
+        <button
+          (click)="plus()"
+          class="h-fit border-white border-1 bg-zinc-200 rounded-md p-1"
+        >
+          <i class="bi bi-plus-lg"></i>
+        </button>
+        <button
+          class="h-fit border-white border-1 bg-zinc-200 rounded-md px-2 p-1 mx-4"
+        >
+          {{ value }}
+        </button>
+        <!-- Minus Button -->
+        <button
+          (click)="minus()"
+          class="h-fit border-white border-1 bg-zinc-200 rounded-md p-1"
+        >
+          <i class="bi bi-dash-lg h-fit"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

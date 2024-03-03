@@ -1,0 +1,16 @@
+.custom {
+  display: flex;
+  flex-wrap: wrap;
+}
+.undercard {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ecebeb;
+  padding: 5px;
+  border-radius: 8px;
+}
+#cardphoto {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
