@@ -7,7 +7,7 @@
   <div *ngFor="let item of cart.slice(3, 6)" class="items flex">
     <div class="logo w-full flex justify-center">
       <!-- Photo section -->
-      <a href="product/{{item.id}}"
+      <a routerLink="product/{{item.id}}"
         ><img
           class="w-[50%] mb-2 rounded-xl"
           src="{{ item.thumbnail }}"
@@ -18,7 +18,7 @@
     <div class="middle w-full">
       <!-- Name -->
       <div>
-        <a href="product/{{item.id}}"> {{ item.title }}</a>
+        <a routerLink="product/{{item.id}}"> {{ item.title }}</a>
        
       </div>
       <div class="text-gray-500">
