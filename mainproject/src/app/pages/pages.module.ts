@@ -11,6 +11,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { ProductComponent } from './product/product.component';
 import { ProductsComponent } from './products/products.component';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -26,6 +27,6 @@ import { FormsModule } from '@angular/forms';
     ProductComponent,
     ProductsComponent,
   ],
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule,FormsModule,RouterModule],
 })
 export class PagesModule {}
