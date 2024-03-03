@@ -8,10 +8,10 @@
         <a routerLink="/">Home</a>
       </li>
       <li class="hover:cursor-pointer hidden md:inline-block">
-        <a routerLink="about">About</a>
+        <a routerLink="/about">About</a>
       </li>
       <li class="hover:cursor-pointer hidden md:inline-block">
-        <a routerLink="contact">Contact</a>
+        <a routerLink="/contact">Contact</a>
       </li>
       <li>
         <input
@@ -24,13 +24,11 @@
   </div>
 
   <div class="login cursor-pointer hidden md:inline-block">
-
-    <a class="text-white" routerLink="login">Login</a>
+    <a class="text-white" routerLink="/login">Login</a>
 
     <button (click)="out()" class="text-white ml-2">Logout</button>
 
-
-    <a class="text-white ml-2" routerLink="signup">Signup</a>
+    <a class="text-white ml-2" routerLink="/signup">Signup</a>
   </div>
   <div class="md:hidden text-white"><a href="#">&#9776;</a></div>
 </nav>
