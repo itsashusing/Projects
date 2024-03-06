@@ -13,19 +13,13 @@
       <li class="hover:cursor-pointer hidden md:inline-block">
         <a routerLink="/contact">Contact</a>
       </li>
-
-      <li>
-        <input
-          class="p-1 px-2 rounded-xl text-black hidden md:inline-block"
-          placeholder="🔍Search"
-          type="search"
-        />
-      </li>
     </ul>
   </div>
 
   <div class="login cursor-pointer hidden md:inline-block">
-    <a class="text-white mr-2" routerLink="/cart">🛒<span>{{c}} </span> </a>
+    <a class="text-white mr-2" routerLink="/cart"
+      >🛒<span>{{ c }} </span>
+    </a>
     <a class="text-white" routerLink="/login">Login</a>
     <button (click)="out()" class="text-white ml-2">Logout</button>
     <a class="text-white ml-2" routerLink="/signup">Signup</a>
@@ -39,7 +33,9 @@
         <button (click)="mobile()">✖️</button>
       </li>
       <li>
-        <a routerLink="/about">🛒 <span>{{c}} </span> </a>
+        <a routerLink="/cart"
+          >🛒 <span>{{ c }} </span>
+        </a>
       </li>
       <li><a routerLink="/about">About</a></li>
       <li><a routerLink="/contact">Contact</a></li>

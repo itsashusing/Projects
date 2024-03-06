@@ -20,32 +20,13 @@
       <div>
         <a routerLink="/product/{{ item.id }}"> {{ item.title }} </a>
         <span
-          ><button (click)="remove(in)"><i class="bi bi-trash3"></i></button></span
-        >
+          ><button (click)="remove(in)"><i class="bi bi-trash3"></i></button
+        ></span>
       </div>
       <div class="text-gray-500">
         {{ item.description }}
       </div>
     </div>
-    <div class="counter w-full flex justify-center">
-      <div class="flex">
-        <!-- plus button -->
-        <button class="h-fit border-white border-1 bg-zinc-200 rounded-md p-1">
-          <i class="bi bi-plus-lg"></i>
-        </button>
-        <button
-          class="h-fit border-white border-1 bg-zinc-200 rounded-md px-2 p-1 mx-4"
-        >
-          {{ value }}
-        </button>
-        <!-- Minus Button -->
-        <button class="h-fit border-white border-1 bg-zinc-200 rounded-md p-1">
-          <i class="bi bi-dash-lg h-fit"></i>
-        </button>
-      </div>
-    </div>
   </div>
-  <div>
-    Find Total: {{total}}
-  </div>
+  <div>Find Total: {{ total }}</div>
 </div>

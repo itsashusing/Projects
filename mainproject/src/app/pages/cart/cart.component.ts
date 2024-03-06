@@ -11,7 +11,9 @@ export class CartComponent {
   cart: any[] = [];
   total!: number;
   constructor(private obj: ApiService) {
+
     this.obj.cartItemObs.subscribe((data: any) => (this.cart = data));
+    
     this.total = this.findTotal();
   }
   findTotal() {

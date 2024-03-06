@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { AuthService } from '../../services/auth.service';
-import { HtmlParser } from '@angular/compiler';
 
 @Component({
   selector: 'app-nav',
@@ -19,6 +18,7 @@ export class NavComponent {
     this.obj.signout().then();
   }
   isPhone = false;
+
   mobile() {
     this.isPhone = !this.isPhone;
   }

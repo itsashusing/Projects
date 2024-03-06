@@ -12,6 +12,7 @@ import {AngularFireModule} from '@angular/fire/compat';
 import {AngularFireAuthModule} from '@angular/fire/compat/auth';
 import { firebaseConfig } from './environments/environments';
 
+
 @NgModule({
   declarations: [AppComponent, NavComponent, FooterComponent],
   imports: [
@@ -23,6 +24,7 @@ import { firebaseConfig } from './environments/environments';
     MaterialModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
+    
     
   ],
   providers: [],
