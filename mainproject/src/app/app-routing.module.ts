@@ -8,6 +8,8 @@ import { SingupComponent } from './pages/singup/singup.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { dashboardGuard } from './dashboard.guard';
 
 const routes: Routes = [
   { path: '', component: ProductsComponent },
@@ -17,6 +19,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SingupComponent },
   { path: 'cart', component: CartComponent },
+  { path: 'dashboard', component: DashboardComponent,canActivate:[dashboardGuard] },
   { path: '**', component: NotfoundComponent },
 ];
 

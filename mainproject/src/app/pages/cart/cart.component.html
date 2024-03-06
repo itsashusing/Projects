@@ -4,10 +4,10 @@
   </div>
   <hr class="mb-4" />
   <!-- items -->
-  <div *ngFor="let item of cart.slice(3, 6)" class="items flex">
+  <div *ngFor="let item of cart; let in = index" class="items flex">
     <div class="logo w-full flex justify-center">
       <!-- Photo section -->
-      <a routerLink="/product/{{item.id}}"
+      <a routerLink="/product/{{ item.id }}"
         ><img
           class="w-[50%] mb-2 rounded-xl"
           src="{{ item.thumbnail }}"
@@ -18,8 +18,10 @@
     <div class="middle w-full">
       <!-- Name -->
       <div>
-        <a routerLink="product/{{item.id}}"> {{ item.title }}</a>
-       
+        <a routerLink="/product/{{ item.id }}"> {{ item.title }} </a>
+        <span
+          ><button (click)="remove(in)"><i class="bi bi-trash3"></i></button></span
+        >
       </div>
       <div class="text-gray-500">
         {{ item.description }}
@@ -28,10 +30,7 @@
     <div class="counter w-full flex justify-center">
       <div class="flex">
         <!-- plus button -->
-        <button
-          (click)="plus()"
-          class="h-fit border-white border-1 bg-zinc-200 rounded-md p-1"
-        >
+        <button class="h-fit border-white border-1 bg-zinc-200 rounded-md p-1">
           <i class="bi bi-plus-lg"></i>
         </button>
         <button
@@ -40,13 +39,13 @@
           {{ value }}
         </button>
         <!-- Minus Button -->
-        <button
-          (click)="minus()"
-          class="h-fit border-white border-1 bg-zinc-200 rounded-md p-1"
-        >
+        <button class="h-fit border-white border-1 bg-zinc-200 rounded-md p-1">
           <i class="bi bi-dash-lg h-fit"></i>
         </button>
       </div>
     </div>
+  </div>
+  <div>
+    Find Total: {{total}}
   </div>
 </div>

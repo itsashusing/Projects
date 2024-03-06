@@ -21,6 +21,7 @@ export class SingupComponent {
       this.obj
         .signup(email.control.value, password.control.value)
         .then((val) => { console.log(val);
+          
           this.router.navigate(['login']);
         }) .catch((err) => alert(err));
     }

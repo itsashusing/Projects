@@ -11,4 +11,8 @@ export class ProductsComponent {
   constructor(private obj: ApiService) {
     this.obj.getAddData().subscribe((data: any) => (this.data = data.products));
   }
+
+  add(product:object){
+    this.obj.addValue(product)
+  }
 }
