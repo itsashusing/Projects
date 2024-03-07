@@ -15,6 +15,10 @@ export class ApiService {
 
   constructor(private obj: HttpClient) {}
 
+  removevalue(){
+    const c = this.cartSubject.getValue();
+    this.cartSubject.next(c-1)
+  }
   // add to cart
   addValue(prod: object) {
     const c = this.cartSubject.getValue();

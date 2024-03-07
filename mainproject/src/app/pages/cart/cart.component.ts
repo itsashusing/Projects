@@ -11,13 +11,11 @@ export class CartComponent {
   cart: any[] = [];
   total!: number;
   constructor(private obj: ApiService) {
-
     this.obj.cartItemObs.subscribe((data: any) => (this.cart = data));
-    
     this.total = this.findTotal();
   }
+
   findTotal() {
-    console.log('Total Find');
     return this.cart.reduce((sum, i) => i.price + sum, 0);
   }
   remove(index: number) {
@@ -25,19 +23,6 @@ export class CartComponent {
     a.splice(index, 1);
     this.cart = a;
     this.total = this.findTotal();
+    this.obj.removevalue()
   }
-  // plus() {
-  //   if (this.value > 9) {
-  //     alert(" You can't select more than 10 items once.");
-  //   } else {
-  //     this.value++;
-  //   }
-  // }
-  // minus() {
-  //   if (this.value > 0) {
-  //     this.value--;
-  //   } else {
-  //     alert('Cart is empty.');
-  //   }
-  // }
 }

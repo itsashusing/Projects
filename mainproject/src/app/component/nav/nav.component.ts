@@ -22,4 +22,5 @@ export class NavComponent {
   mobile() {
     this.isPhone = !this.isPhone;
   }
+
 }

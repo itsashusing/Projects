@@ -16,7 +16,8 @@ export class LoginComponent {
       .then((val) => {
         // console.log(val)
         alert('successfully logged in');
-        localStorage.setItem('Name', email.control.value);
+        localStorage.setItem('email', email.control.value);
+        localStorage.setItem('user','logout')
         this.router.navigateByUrl('/dashboard');
         this.isLogin = true;
       })

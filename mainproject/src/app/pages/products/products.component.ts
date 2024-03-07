@@ -24,7 +24,6 @@ export class ProductsComponent {
 
   notFound = false;
   search() {
-    console.log(this.value);
     this.obj.getSearchItem(this.value).subscribe((data: any) => {
       this.data = data.products;
       this.notFound = false;
