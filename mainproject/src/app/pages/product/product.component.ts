@@ -18,4 +18,8 @@ export class ProductComponent {
       (this.product = data), (this.images = data.images);
     });
   }
+
+  add(prod: any) {
+    this.obj.addValue(prod);
+  }
 }

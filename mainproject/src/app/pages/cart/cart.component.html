@@ -1,4 +1,4 @@
-<div class="container bg-slate-200">
+<div class="container bg-slate-200 p-2">
   <div class="text-center text-2xl font-semibold p-2 mb-4">
     Hello Ashutosh Singh check your shoping bag!
   </div>
@@ -11,8 +11,6 @@
         ><img
           class="w-[50%] mb-2 rounded-xl"
           src="{{ item.thumbnail }}"
-          alt=""
-          srcset=""
       /></a>
     </div>
     <div class="middle w-full">
@@ -24,9 +22,17 @@
         ></span>
       </div>
       <div class="text-gray-500">
-        {{ item.description }}
+        {{ item.description }} <br>
+        Price: {{item.price}}
       </div>
     </div>
   </div>
-  <div>Find Total: {{ total }}</div>
+  <div class="flex justify-center gap-x-2">
+    <div class="w-fit bg-purple-900 text-white px-4 py-2 rounded-2xl">
+      Find Total: {{ total }}
+    </div>
+    <div class="bg-green-700 px-4 py-2 text-white font-semibold rounded-2xl">
+      CheckOut
+    </div>
+  </div>
 </div>

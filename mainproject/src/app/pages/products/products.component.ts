@@ -20,6 +20,7 @@ export class ProductsComponent {
 
   add(product: object) {
     this.obj.addValue(product);
+    alert('Product Added to cart.');
   }
 
   notFound = false;
