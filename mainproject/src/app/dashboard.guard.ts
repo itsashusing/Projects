@@ -1,9 +1,13 @@
-import { inject } from '@angular/core';
-import { CanActivateFn } from '@angular/router';
-import { AuthService } from './services/auth.service';
 
+import { CanActivateFn } from '@angular/router';
+
+let user = localStorage.getItem('email')
 export const dashboardGuard: CanActivateFn = (route, state) => {
-  const obj = inject(AuthService);
-  console.log(obj.isLoggedIn.getValue());
-  return obj.isLoggedIn.getValue();
+
+  if (user) {
+    return true
+  } else {
+
+    return false;
+  }
 };

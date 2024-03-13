@@ -8,18 +8,18 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
-  constructor(private obj: AuthService, private router: Router) {}
+  constructor(private obj: AuthService, private router: Router) { }
   isLogin = false;
+
   login(email: any, password: any) {
     this.obj
       .signin(email.control.value, password.control.value)
       .then((val) => {
-        // console.log(val)
         alert('successfully logged in');
         localStorage.setItem('email', email.control.value);
-        localStorage.setItem('user','logout')
+        location.reload()
         this.router.navigateByUrl('/dashboard');
-        this.isLogin = true;
+        console.log('Login successfull')
       })
       .catch((err) => alert(err));
   }

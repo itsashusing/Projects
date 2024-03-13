@@ -1,7 +1,7 @@
 <div class="bg-slate-700 h-screen text-white">
   <form
     #fm="ngForm"
-    (ngSubmit)="register(pw, em)"
+    (ngSubmit)="register(pw, em,na)"
     class="flex flex-col items-center h-[70vh] justify-center"
   >
     <div class="text-center font-semibold text-2xl mb-2">Register</div>
@@ -13,6 +13,8 @@
         type="text"
         placeholder="Enter Your Name"
         name="username"
+        ngModel
+        #na="ngModel"
       />
       <input
         [ngClass]="{ error: (fm.submitted || em.touched) && em.errors?.['required'] }"

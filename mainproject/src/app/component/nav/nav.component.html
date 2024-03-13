@@ -21,9 +21,14 @@
       >🛒<span>{{ c }} </span>
     </a>
 
-    <a class="text-white" routerLink="/login">Login</a>
-    <button (click)="out()" class="text-white ml-2">Logout</button>
-    <a class="text-white ml-2" routerLink="/signup">Signup</a>
+    <a *ngIf="!email" class="text-white" routerLink="/login">Login</a>
+    <a *ngIf="email" class="text-white" routerLink="dashboard"
+      ><i class="bi bi-person-circle"></i
+    ></a>
+    <button *ngIf="email" (click)="out()" class="text-white ml-2">
+      Logout
+    </button>
+    <a *ngIf="!email" class="text-white ml-2" routerLink="/signup">Signup</a>
   </div>
   <div
     *ngIf="isPhone"
@@ -38,11 +43,18 @@
           >🛒 <span>{{ c }} </span>
         </a>
       </li>
+      <li>
+        <a *ngIf="email" routerLink="dashboard"
+          ><i class="bi bi-person-circle"></i
+        ></a>
+      </li>
+      <li><a *ngIf="!email" routerLink="/login">login</a></li>
+      <li><a *ngIf="!email" routerLink="/signup">signup</a></li>
       <li><a routerLink="/about">About</a></li>
       <li><a routerLink="/contact">Contact</a></li>
-      <li><a routerLink="/login">login</a></li>
-      <li><a routerLink="/signup">signup</a></li>
-      <li><button (click)="out()" class="text-white">Logout</button></li>
+      <li>
+        <button *ngIf="email" (click)="out()" class="text-white">Logout</button>
+      </li>
     </ul>
   </div>
   <button (click)="mobile()" class="md:hidden text-white">&#9776;</button>

@@ -29,39 +29,45 @@ export class CartComponent {
     this.obj.removevalue();
   }
   payNow() {
-    if (this.total > 0) {
-      const RozarpayOptions = {
-        description: 'Sample Razorpay demo',
-        currency: 'INR',
-        amount: this.total * 100,
-        name: 'User',
-        key: 'rzp_test_FuxEAJZxplaOIu',
-        image: 'https://ecom245.netlify.app/assets/images/navlogo.svg',
-        prefill: {
+    if (localStorage.getItem('email')) {
+
+
+      if (this.total > 0) {
+        const RozarpayOptions = {
+          description: 'Sample Razorpay demo',
+          currency: 'INR',
+          amount: this.total * 100,
           name: 'User',
-          email: 'user@gmail.com',
-          phone: '9858453625',
-        },
-        theme: {
-          color: '#6466e3',
-        },
-        modal: {
-          ondismiss: () => {
-            console.log('dismissed');
+          key: 'rzp_test_FuxEAJZxplaOIu',
+          image: 'https://ecom245.netlify.app/assets/images/navlogo.svg',
+          prefill: {
+            name: 'User',
+            email: 'user@gmail.com',
+            phone: '9858453625',
           },
-        },
-      };
-      const successCallback = (paymentid: any) => {
-        console.log(paymentid);
-      };
+          theme: {
+            color: '#6466e3',
+          },
+          modal: {
+            ondismiss: () => {
+              console.log('dismissed');
+            },
+          },
+        };
+        const successCallback = (paymentid: any) => {
+          console.log(paymentid);
+        };
 
-      const failureCallback = (e: any) => {
-        console.log(e);
-      };
+        const failureCallback = (e: any) => {
+          console.log(e);
+        };
 
-      Razorpay.open(RozarpayOptions, successCallback, failureCallback);
-    } else {
-      alert('Please Add some thing in cart.');
+        Razorpay.open(RozarpayOptions, successCallback, failureCallback);
+      } else {
+        alert(`Please Add some item in cart.`);
+      }
+    }else{
+      alert('Login first!!!')
     }
   }
 }

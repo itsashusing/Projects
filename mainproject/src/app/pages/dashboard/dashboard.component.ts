@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
   styleUrl: './dashboard.component.css',
 })
 export class DashboardComponent {
-  user!:any;
+  email!: any;
   constructor() {
-    this.user= localStorage.getItem('Name');
+    this.email = localStorage.getItem('email');
   }
 }

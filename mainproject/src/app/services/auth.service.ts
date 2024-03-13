@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private auth: AngularFireAuth) {}
+  constructor(private auth: AngularFireAuth) { }
   isLoggedIn = new BehaviorSubject(false);
   async signup(email: string, password: string) {
     try {
@@ -14,7 +14,7 @@ export class AuthService {
         email,
         password
       );
-      
+
       return userCredential;
     } catch (error) {
       throw error; // Re-throw for handling in components
