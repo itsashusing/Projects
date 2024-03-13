@@ -1,1 +1,20 @@
-<p>categories works!</p>
+<h1 class="font-bold text-center text-xl">Total Categories</h1>
+<table>
+  <th>
+    <tr>
+      <th class="p-1">S.No.</th>
+      <th class="p-1">Name</th>
+    </tr>
+  </th>
+  <tbody>
+    <td>
+      <tr
+        class="border-b-2 border-purple-600"
+        *ngFor="let item of catList; let i = index"
+      >
+        <td class="p-1">{{ i }}</td>
+        <td class="p-1">{{ item }}</td>
+      </tr>
+    </td>
+  </tbody>
+</table>

@@ -1,1 +1,14 @@
-<p>customer-cart works!</p>
+<div class="container border-2 p-2 border-black">
+  <!-- {{cart | json}} -->
+  <div *ngFor="let item of cart; let in=index" class="flex flex-wrap sm:justify-between">
+    <div class="w-32 h-40">
+      <img class="w-28 h-28" src="{{ item.image }}" />
+    </div>
+    <div class="w-2/4 flex flex-col px-2">
+      <div class="font-semibold text-center">{{ item.title }}</div>
+      <div>{{ item.description.slice(0, 100) }}</div>
+    </div>
+    <button class="bg-red-700 p-1 w-fit h-fit text-white" (click)="remove(in)">remove</button>
+  </div>
+  <div>Total Price:{{ total }}</div>
+</div>

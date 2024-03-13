@@ -8,9 +8,7 @@
     <div class="logo w-full flex justify-center">
       <!-- Photo section -->
       <a routerLink="/product/{{ item.id }}"
-        ><img
-          class="w-[50%] mb-2 rounded-xl"
-          src="{{ item.thumbnail }}"
+        ><img class="w-[50%] mb-2 rounded-xl" src="{{ item.thumbnail }}"
       /></a>
     </div>
     <div class="middle w-full">
@@ -22,8 +20,8 @@
         ></span>
       </div>
       <div class="text-gray-500">
-        {{ item.description }} <br>
-        Price: {{item.price}}
+        {{ item.description }} <br />
+        Price: {{ item.price }}
       </div>
     </div>
   </div>
@@ -31,8 +29,11 @@
     <div class="w-fit bg-purple-900 text-white px-4 py-2 rounded-2xl">
       Find Total: {{ total }}
     </div>
-    <div class="bg-green-700 px-4 py-2 text-white font-semibold rounded-2xl">
+    <button
+      (click)="payNow()"
+      class="bg-green-700 px-4 py-2 text-white font-semibold rounded-2xl"
+    >
       CheckOut
-    </div>
+    </button>
   </div>
 </div>

@@ -1,0 +1,26 @@
+<div class="container flex flex-wrap justify-center mt-2">
+  <div
+    class="product flex flex-col gap-2 max-w-52 min-h-52 m-2 p-2 border-2 border-purple-800 rounded-xl"
+    *ngFor="let item of ProductList"
+  >
+    <div class="flex justify-center">
+      <img
+        class="w-32 h-36 hover:scale-105 transition ease-in"
+        src="{{ item.image }}"
+      />
+    </div>
+    <div class="text-center font-semibold">{{ item.title.slice(0, 10) }}</div>
+    <div class="flex justify-around gap-2">
+      <span
+        class="px-2 py-[2px] rounded-full bg-yellow-500 text-sm font-semibold"
+        >{{ item.price | currency : "INR" }}</span
+      >
+      <button
+        (click)="addToCart(item)"
+        class="text-sm bg-green-800 text-white px-2 py-[2px] rounded-full font-light"
+      >
+        🛒Add to cart
+      </button>
+    </div>
+  </div>
+</div>
