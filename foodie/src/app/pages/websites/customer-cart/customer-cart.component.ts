@@ -39,11 +39,11 @@ export class CustomerCartComponent {
       description: 'Sample Razorpay demo',
       currency: 'INR',
       amount: this.total * 100,
-      name: 'User',
+      name: 'Demo User',
       key: 'rzp_test_FuxEAJZxplaOIu',
       image: 'https://ecom245.netlify.app/assets/images/navlogo.svg',
       prefill: {
-        name: 'User',
+        name: 'Demo User',
         email: 'user@gmail.com',
         phone: '9858453625',
       },
