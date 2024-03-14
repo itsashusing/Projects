@@ -5,10 +5,12 @@ import { CommonModule } from '@angular/common';
 import { CartService } from '../../../services/cart/cart.service';
 import { RouterLink } from '@angular/router';
 
+declare var Razorpay: any;
+
 @Component({
   selector: 'app-customer-cart',
   standalone: true,
-  imports: [CommonModule,RouterLink],
+  imports: [CommonModule, RouterLink],
   templateUrl: './customer-cart.component.html',
   styleUrl: './customer-cart.component.css',
 })
@@ -31,4 +33,39 @@ export class CustomerCartComponent {
     this.total = this.findTotal()
   }
 
+  payNow() {
+
+    const RozarpayOptions = {
+      description: 'Sample Razorpay demo',
+      currency: 'INR',
+      amount: this.total * 100,
+      name: 'User',
+      key: 'rzp_test_FuxEAJZxplaOIu',
+      image: 'https://ecom245.netlify.app/assets/images/navlogo.svg',
+      prefill: {
+        name: 'User',
+        email: 'user@gmail.com',
+        phone: '9858453625',
+      },
+      theme: {
+        color: '#6466e3',
+      },
+      modal: {
+        ondismiss: () => {
+          console.log('dismissed');
+        },
+      },
+    };
+    const successCallback = (paymentid: any) => {
+      console.log(paymentid);
+    };
+
+    const failureCallback = (e: any) => {
+      console.log(e);
+    };
+
+    Razorpay.open(RozarpayOptions, successCallback, failureCallback);
+
+
+  }
 }

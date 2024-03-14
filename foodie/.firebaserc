@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ecom-cbda7": {
+      "hosting": {
+        "foodie": [
+          "ecom-cbda7"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ecom-cbda7"
+  }
+}

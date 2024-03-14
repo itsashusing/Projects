@@ -15,11 +15,11 @@ export class LoginComponent {
     password: '',
   };
 
-  constructor(private router:Router){}
-  onLogin(){
-    if(this.loinObj.username == 'admin' && this.loinObj.password == "12345678" ){
-this.router.navigateByUrl('/products')
-    }else{
+  constructor(private router: Router) { }
+  onLogin() {
+    if (this.loinObj.username == 'admin' && this.loinObj.password == "12345678") {
+      this.router.navigateByUrl('/admin/products')
+    } else {
 
       alert('Wrong Credentials')
     }
