@@ -5,7 +5,7 @@ let user = localStorage.getItem('email')
 export const dashboardGuard: CanActivateFn = (route, state) => {
 
   if (user) {
-    return true
+    return true;
   } else {
 
     return false;

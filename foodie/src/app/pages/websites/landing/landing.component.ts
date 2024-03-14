@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
-
 import { CommonModule } from '@angular/common';
 import { ProductsService } from '../../../services/products/products.service';
 import { CartService } from '../../../services/cart/cart.service';
+
 
 @Component({
   selector: 'app-landing',
@@ -21,7 +21,7 @@ export class LandingComponent {
     private cart: CartService,
     private route: Router
   ) {
-    // console.log('I am landing Page');
+
   }
   toggleDropdown() {
     this.isDropDown = !this.isDropDown;

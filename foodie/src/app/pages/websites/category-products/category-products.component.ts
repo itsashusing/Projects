@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../../../services/products/products.service';
 import { CommonModule } from '@angular/common';
+import { CartService } from '../../../services/cart/cart.service';
 
 @Component({
   selector: 'app-category-products',
@@ -13,15 +14,20 @@ import { CommonModule } from '@angular/common';
 export class CategoryProductsComponent {
   v!: any;
   ProductList: any[] = [];
-  constructor(private route: ActivatedRoute, private api: ProductsService) {}
+  constructor(private route: ActivatedRoute, private api: ProductsService, private cart: CartService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       this.v = params.get('str');
-      // console.log('Parameter value in child component:', this.v);
+
       this.api
         .getCategoryWiseDate(this.v)
         .subscribe((res: any) => (this.ProductList = res));
     });
+  }
+
+  addToCart(item: any) {
+    this.cart.addValue(item);
+
   }
 }

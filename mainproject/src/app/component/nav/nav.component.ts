@@ -19,9 +19,8 @@ export class NavComponent {
   }
 
   out() {
-    this.obj.signout().then();
+    this.obj.signout();
     localStorage.clear()
-    this.route.navigateByUrl('')
     location.reload()
    
   }
