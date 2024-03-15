@@ -11,7 +11,6 @@ import { CustomerCartComponent } from './pages/websites/customer-cart/customer-c
 
 export const routes: Routes = [
   { path: '', redirectTo: 'allproducts', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
   {
     path: '',
     component: LandingComponent,
@@ -19,6 +18,7 @@ export const routes: Routes = [
       { path: 'allproducts', component: WebProductsComponent },
       { path: 'product/:str', component: CategoryProductsComponent },
       { path: 'cart', component: CustomerCartComponent },
+      { path: 'login', component: LoginComponent },
     ],
   },
 
