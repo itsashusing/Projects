@@ -3,7 +3,7 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ProductsService } from '../../../services/products/products.service';
 import { CartService } from '../../../services/cart/cart.service';
-
+import { AuthService } from '../../../services/auth/auth.service';
 
 @Component({
   selector: 'app-landing',
@@ -16,12 +16,16 @@ export class LandingComponent {
   CatList: any[] = [];
   isDropDown = false;
   totol: Number = 0;
+  isLogin = false;
   constructor(
     private api: ProductsService,
     private cart: CartService,
-    private route: Router
+    private route: Router,
+    private auth: AuthService
   ) {
-
+    this.auth.userName.subscribe((res: any) => {
+      (this.isLogin = res);
+    });
   }
   toggleDropdown() {
     this.isDropDown = !this.isDropDown;
@@ -37,5 +41,8 @@ export class LandingComponent {
   navigateCategory(cat: string) {
     this.isDropDown = !this.isDropDown;
     this.route.navigate(['/product', cat]);
+  }
+  logout() {
+    this.auth.userName.next(false)
   }
 }

@@ -21,7 +21,7 @@ export class ProductsComponent implements OnInit {
     Image: '',
     Category: '',
   };
-  constructor(private productService: ProductsService) {}
+  constructor(private productService: ProductsService) { }
   ngOnInit(): void {
     this.getAllCategory();
     this.getAllProducts();
@@ -41,14 +41,13 @@ export class ProductsComponent implements OnInit {
 
   onsave() {
     this.productService.onSave(this.projectObj).subscribe((res: any) => {
-      debugger;
+
       alert(`Product created successfully! ${res.title}`);
       this.getAllProducts();
     });
   }
   onedit(item: any) {
     this.projectObj = item;
-    console.log(this.projectObj.id);
     this.openSide();
   }
   onupdate(product: any) {
@@ -74,5 +73,8 @@ export class ProductsComponent implements OnInit {
   }
   closeSide() {
     this.isSidePanel = false;
+  }
+  reset() {
+    this.projectObj = ''
   }
 }

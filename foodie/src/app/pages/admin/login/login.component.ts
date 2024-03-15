@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../../services/auth/auth.service';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class LoginComponent {
     password: '',
   };
 
-  constructor(private router: Router,) { }
+  constructor(private router: Router, private auth: AuthService) { }
 
   ngOnInit(): void {
     const localData = localStorage.getItem('singupUser');
@@ -43,14 +44,19 @@ export class LoginComponent {
       email: '',
       password: '',
     };
+    this.isLoginMode = true
   }
 
   onLogin() {
     const isUserExist = this.singupUser.find(m => m.username == this.loinObj.username && m.password == this.loinObj.password)
     if (this.loinObj.username == 'admin' && this.loinObj.password == "12345678") {
+      this.auth.userName.next(true)
       this.router.navigateByUrl('/admin/products')
+
     } else if (isUserExist != undefined) {
+      this.auth.userName.next(true)
       this.router.navigateByUrl('/allproducts')
+
     } else {
       alert('Wrong Credentials')
     }
